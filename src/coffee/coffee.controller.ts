@@ -1,6 +1,6 @@
 import { Controller, Get, Body, Post } from '@nestjs/common';
 import { CoffeeService } from './coffee.service';
-import { Coffee } from 'src/entities/coffee.entity';
+import { Coffee } from 'src/database/entities/coffee.entity';
 
 @Controller('coffee')
 export class CoffeeController {
