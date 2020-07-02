@@ -11,8 +11,9 @@ export class CoffeeService {
   ) {}
 
   findAll(): Promise<Coffee[]> {
-    return this.coffeeRepository.find({ relations: ['descriptors'] });
+    return this.coffeeRepository.find({ relations: ['tastingNotes'] });
   }
+
   async create(coffee: Coffee) {
     await this.coffeeRepository.save(coffee);
   }
