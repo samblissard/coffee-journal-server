@@ -11,7 +11,7 @@ DB_DATABASE_NAME={DB_DATABASE_NAME}
 DB_PORT=5432
 ```
 
-The Postgres configuration can be replaced with a local instance's parameters or customized for Docker.
+The Postgres configuration can be replaced with a local instance's parameters or customized for a Docker container.
 
 ## Running the app
 
