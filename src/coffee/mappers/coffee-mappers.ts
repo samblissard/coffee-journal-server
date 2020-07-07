@@ -6,7 +6,7 @@ export function mapCoffeeToCoffeePreviewDTO(coffee: Coffee): CoffeePreviewDTO {
     id: coffee.id,
     name: coffee.name,
     roaster: coffee.roaster,
-    roast: 'Dark roast',
+    roast: coffee.roast,
     tastingNotes: coffee.tastingNotes.map(descriptor => descriptor.description),
   };
 }
