@@ -1,4 +1,4 @@
-export class CoffeePreviewDTO {
+export interface CoffeeDTO {
   id: number;
   name: string;
   roaster: string;

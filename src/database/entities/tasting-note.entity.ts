@@ -7,4 +7,8 @@ export class TastingNote {
 
   @Column()
   description: string;
+
+  constructor(description: string) {
+    this.description = description;
+  }
 }
