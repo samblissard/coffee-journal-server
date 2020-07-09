@@ -18,6 +18,8 @@ export function mapCoffeeDTOToCoffee(dto: CoffeeDTO): Coffee {
   coffee.name = dto.name;
   coffee.roaster = dto.roaster;
   coffee.roast = dto.roast;
-  coffee.tastingNotes = dto.tastingNotes.map(tn => new TastingNote(tn));
+  coffee.tastingNotes = dto.tastingNotes
+    ? dto.tastingNotes.map(tn => new TastingNote(tn))
+    : [];
   return coffee;
 }
