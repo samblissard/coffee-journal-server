@@ -5,7 +5,7 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { FlavorDescriptor } from './flavor-descriptor.entity';
+import { TastingNote } from './tasting-note.entity';
 
 @Entity()
 export class Coffee {
@@ -16,9 +16,12 @@ export class Coffee {
   name: string;
 
   @Column()
-  company: string;
+  roaster: string;
 
-  @ManyToMany(type => FlavorDescriptor, { cascade: true })
+  @Column()
+  roast: string;
+
+  @ManyToMany(type => TastingNote, { cascade: true })
   @JoinTable()
-  descriptors: FlavorDescriptor[];
+  tastingNotes: TastingNote[];
 }

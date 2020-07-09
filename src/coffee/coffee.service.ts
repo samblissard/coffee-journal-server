@@ -1,7 +1,7 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Coffee } from '../database/entities/coffee.entity';
-import { Repository } from 'typeorm';
+import { Repository, QueryFailedError } from 'typeorm';
 
 @Injectable()
 export class CoffeeService {
@@ -11,9 +11,19 @@ export class CoffeeService {
   ) {}
 
   findAll(): Promise<Coffee[]> {
-    return this.coffeeRepository.find({ relations: ['descriptors'] });
+    return this.coffeeRepository.find({ relations: ['tastingNotes'] });
   }
-  async create(coffee: Coffee) {
-    await this.coffeeRepository.save(coffee);
+
+  findOne(id: number): Promise<Coffee> {
+    return this.coffeeRepository.findOne(id);
+  }
+
+  async create(coffee: Coffee): Promise<Coffee> {
+    try {
+      return await this.coffeeRepository.save(coffee);
+    } catch (err) {
+      //TODO: Add error handling
+      console.log(err);
+    }
   }
 }
