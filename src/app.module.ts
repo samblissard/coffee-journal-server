@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JournalEntryController } from './journal-entry/journal-entry.controller';
@@ -14,7 +13,7 @@ import { CoffeeService } from './coffee/coffee.service';
     TypeOrmModule.forRoot(),
     TypeOrmModule.forFeature([Coffee, JournalEntry]),
   ],
-  controllers: [AppController, JournalEntryController, CoffeeController],
+  controllers: [JournalEntryController, CoffeeController],
   providers: [AppService, JournalEntryService, CoffeeService],
 })
 export class AppModule {}
