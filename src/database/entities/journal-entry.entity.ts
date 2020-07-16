@@ -1,20 +1,30 @@
 import {
   Entity,
-  Column,
   PrimaryGeneratedColumn,
-  ManyToMany,
-  JoinTable,
-  OneToMany,
+  Column,
+  OneToOne,
   ManyToOne,
-  TableForeignKey,
 } from 'typeorm';
 import { Coffee } from './coffee.entity';
+import { BrewingMethod } from './brewing-method.entity';
 
 @Entity()
 export class JournalEntry {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(type => Coffee)
+  @OneToOne(type => Coffee)
   coffee: Coffee;
+
+  @OneToOne(type => BrewingMethod)
+  brewingMethod: BrewingMethod;
+
+  @Column()
+  coffeeWeight: number;
+
+  @Column()
+  waterWeight: number;
+
+  @Column()
+  grindSetting: number;
 }
