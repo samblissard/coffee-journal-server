@@ -52,12 +52,16 @@ describe('JournalEntry Controller', () => {
           roaster: 'someRoaster',
           tastingNotes: [],
         },
+        brewingMethod: 'someBrewingMethod',
+        coffeeWeight: 1,
+        waterWeight: 1,
+        grindSetting: 1,
       };
 
       await controller.create(dto);
 
       expect(mockJournalEntryService.create).toHaveBeenCalledWith(
-        jasmine.any(JournalEntry),
+        expect.any(JournalEntry),
       );
     });
   });

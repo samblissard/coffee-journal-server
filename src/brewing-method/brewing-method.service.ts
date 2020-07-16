@@ -21,4 +21,16 @@ export class BrewingMethodService {
       await this.brewingMethodRepository.save(new BrewingMethod(description));
     }
   }
+
+  async findOne(description: string): Promise<BrewingMethod> {
+    return await this.brewingMethodRepository.findOne({
+      where: {
+        description: description,
+      },
+    });
+  }
+
+  async findAll(): Promise<BrewingMethod[]> {
+    return await this.brewingMethodRepository.find();
+  }
 }
