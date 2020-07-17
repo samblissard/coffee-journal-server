@@ -13,10 +13,10 @@ export class JournalEntry {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(type => Coffee)
+  @ManyToOne(type => Coffee)
   coffee: Coffee;
 
-  @OneToOne(type => BrewingMethod)
+  @ManyToOne(type => BrewingMethod, { cascade: true })
   brewingMethod: BrewingMethod;
 
   @Column()
