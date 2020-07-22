@@ -8,5 +8,6 @@ import { Coffee } from 'src/database/entities/coffee.entity';
   imports: [TypeOrmModule.forFeature([Coffee])],
   controllers: [CoffeeController],
   providers: [CoffeeService],
+  exports: [CoffeeService],
 })
 export class CoffeeModule {}

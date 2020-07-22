@@ -1,19 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { JournalEntryController } from './journal-entry/journal-entry.controller';
-import { JournalEntryService } from './journal-entry/journal-entry.service';
-import { JournalEntry } from './database/entities/journal-entry.entity';
-import { Coffee } from './database/entities/coffee.entity';
-import { CoffeeController } from './coffee/coffee.controller';
-import { CoffeeService } from './coffee/coffee.service';
+import { JournalEntryModule } from './journal-entry/journal-entry.module';
+import { CoffeeModule } from './coffee/coffee.module';
+import { BrewingMethodService } from './brewing-method/brewing-method.service';
+import { BrewingMethodModule } from './brewing-method/brewing-method.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([Coffee, JournalEntry]),
+    CoffeeModule,
+    JournalEntryModule,
+    BrewingMethodModule,
   ],
-  controllers: [JournalEntryController, CoffeeController],
-  providers: [AppService, JournalEntryService, CoffeeService],
 })
 export class AppModule {}

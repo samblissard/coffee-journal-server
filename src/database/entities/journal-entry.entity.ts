@@ -1,14 +1,12 @@
 import {
   Entity,
-  Column,
   PrimaryGeneratedColumn,
-  ManyToMany,
-  JoinTable,
-  OneToMany,
+  Column,
+  OneToOne,
   ManyToOne,
-  TableForeignKey,
 } from 'typeorm';
 import { Coffee } from './coffee.entity';
+import { BrewingMethod } from './brewing-method.entity';
 
 @Entity()
 export class JournalEntry {
@@ -17,4 +15,16 @@ export class JournalEntry {
 
   @ManyToOne(type => Coffee)
   coffee: Coffee;
+
+  @ManyToOne(type => BrewingMethod, { cascade: true })
+  brewingMethod: BrewingMethod;
+
+  @Column()
+  coffeeWeight: number;
+
+  @Column()
+  waterWeight: number;
+
+  @Column()
+  grindSetting: number;
 }
