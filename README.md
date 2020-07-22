@@ -1,5 +1,11 @@
-## Setup
+# Coffee Journal (Server)
+A web application that lets you log thoughts about coffee and all the fun variables related to it
 
+## Built With
+- [NestJS](https://nestjs.com/)
+- [TypeORM](https://typeorm.io/)
+
+## Installation
 Create `.env` file in the root directory:
 
 ```
@@ -13,40 +19,27 @@ DB_PORT=5432
 
 The Postgres configuration can be replaced with a local instance's parameters or customized for a Docker container.
 
-## Running the app
-
 ### Docker
-
 ```bash
-docker-compose up
+$ docker-compose up
 ```
 
 ### Local
-
 ```bash
 $ npm install
-```
-
-```bash
-# development
-$ npm run start
-
-# watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
+### Swagger
+After starting the application, the Swagger API documentation will be available at `http://localhost:3000/api/`.
 
-## Test
+## Testing
+### Running unit tests
 
 ```bash
-# unit tests
 $ npm run test
+```
 
-# e2e tests
+### Running end-to-end tests
+```bash
 $ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
