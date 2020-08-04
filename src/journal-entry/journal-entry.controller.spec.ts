@@ -56,6 +56,8 @@ describe('JournalEntry Controller', () => {
         coffeeWeight: 1,
         waterWeight: 1,
         grindSetting: 1,
+        rating: 3,
+        personalTastingNotes: 'good',
       };
 
       await controller.create(dto);
