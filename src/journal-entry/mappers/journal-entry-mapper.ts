@@ -12,5 +12,7 @@ export function mapJournalEntryDTOToJournalEntry(
   journalEntry.coffeeWeight = dto.coffeeWeight;
   journalEntry.waterWeight = dto.waterWeight;
   journalEntry.grindSetting = dto.grindSetting;
+  journalEntry.rating = dto.rating;
+  journalEntry.personalTastingNotes = dto.personalTastingNotes;
   return journalEntry;
 }

@@ -1,6 +1,6 @@
 import { CoffeeDTO } from '../../coffee/dto/coffee-dto';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsNotEmptyObject } from 'class-validator';
 
 export class JournalEntryDTO {
   @ApiProperty()
@@ -21,4 +21,11 @@ export class JournalEntryDTO {
   @ApiProperty()
   @IsNotEmpty()
   grindSetting: number;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  rating: number;
+
+  @ApiProperty()
+  personalTastingNotes: string;
 }
