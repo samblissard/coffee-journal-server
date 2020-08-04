@@ -27,4 +27,10 @@ export class JournalEntry {
 
   @Column()
   grindSetting: number;
+
+  @Column({ default: 3 })
+  rating: number;
+
+  @Column({ default: '' })
+  personalTastingNotes: string;
 }
